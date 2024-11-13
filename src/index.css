@@ -1,0 +1,38 @@
+
+body {
+  margin: 0;
+  font-family: VerdanaBold;
+  box-sizing: border-box;
+}
+body.christmas {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg, rgb(212, 186, 171), rgb(70, 64, 50) 50%);
+  border-radius: 10px;
+}
