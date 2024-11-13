@@ -28,6 +28,7 @@
     "web-vitals": "^2.1.4",
     "yup": "^1.4.0"
   },
+  "homepage": "https://github.com/SaraSmarandoiu/slim-mom",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
