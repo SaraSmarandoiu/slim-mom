@@ -7,7 +7,6 @@ import { useState } from 'react';
 import Modal from '../components/Modal/Modal';
 import Snowfall from 'react-snowfall';
 import { ThemeContext } from '../components/Context/Context';
-
 import { setUserGoogle, setInfoUser } from '../redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';

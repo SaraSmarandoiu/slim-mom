@@ -47,26 +47,35 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   const userInfo = useSelector(getUserInfo)
 
   const search = async (value) => {
+    console.log('Searching for:', value)
     try {
       const result = await apiGetSearchProducts(value)
+      console.log('Search result:', result);
       setSearchProducts(result)
     } catch (error) {
+      console.error('Search error:', error);
       setSearchProducts([])
     }
   }
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  };
 
   const handleSubmit = async (values, { resetForm }) => {
-    schema.validate(values)
-    const {productName, productWeight} = values
-    const body = {productName, productWeight: parseInt(productWeight), date}
+    const { productName, productWeight } = values
+    console.log('Submitting:', values);
+    const body = {productName, productWeight: isNaN(parseInt(productWeight)) ? 0 : parseInt(productWeight), date}
     try {
-      const result = await apiAddMyProduct(body, token, date)
+      const result = await apiAddMyProduct(body, token, date, { headers })
+      console.log('Add product result:', result);
       if(result.length>0) {
         dispatch(setProducts(result))
       } else {
         dispatch(setProducts([]))
       }
     } catch (error) {
+      console.error('Submit error:', error);
       alert("Oops.. Product not found!")
     }
     mobile && onClose()
@@ -74,17 +83,16 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   }
 
   const handleChange = (e) => {
-    const productName = e.target.value
-    if (e.target.name === "productName") {
-      if(productName !== "" && productName.length > 1) {
-        search(productName)
-        setVisible(true)
-      } else {
-        setVisible(false)
-        setSearchProducts([])
-      }
+    const { name, value } = e.target;
+    if (name === "productName" && value.length > 1) {
+      search(value);
+      setVisible(true);
+    } else {
+      setVisible(false);
+      setSearchProducts([]);
     }
-  }
+  };
+  
 
   const handleClick = (setFieldValue, title) => {
     setVisible(false)
@@ -99,18 +107,18 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
-        {({formikProps, setFieldValue }) => (
+        {({ setFieldValue }) => (
           <Box>
             <FormWrapper onChange={handleChange}>
               <NameInput
-                type="productName"
+                type="text"
                 placeholder="Enter product name"
                 name="productName"
                 autoComplete="off"
               />
               <ErrorMessage name='productName' component={NameError} />
               <GramsInput
-                type="productWeight"
+                type="number"
                 placeholder="Grams"
                 name="productWeight"
                 autoComplete="off"
@@ -119,7 +127,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
               {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
             </FormWrapper>
             <SearchBox className={visible ? "visible" : null}>
-              {searchProducts !=="" && searchProducts.length !== 0 && searchProducts.map((product) => {
+            {searchProducts.length > 0 && searchProducts.map((product) => {
                 if(userInfo.notAllowedProductsAll.find(el => el === product.title.ua)) {
                   return <SearchItemNotRecommended key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItemNotRecommended>
                 }

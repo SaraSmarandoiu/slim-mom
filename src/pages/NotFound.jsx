@@ -15,8 +15,6 @@ const NotFound = () => {
         <h1 style={{ fontSize: '64px', textAlign: 'center' }}>404</h1>
         <div
           style={{
-            backgroundImage:
-              'url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)',
             height: '400px',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -26,11 +24,11 @@ const NotFound = () => {
 
         <div style={{ marginTop: '-50px' }}>
           <h3 style={{ fontSize: '34px', textAlign: 'center' }}>
-            Look like you're lost
+            Not available
           </h3>
 
           <p style={{ textAlign: 'center' }}>
-            the page you are looking for not avaible!
+            this page is not available
           </p>
           <ButtonWrapper
             style={{

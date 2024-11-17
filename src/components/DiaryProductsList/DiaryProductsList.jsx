@@ -50,7 +50,7 @@ export const DiaryProductsList = () => {
         })
       ) : (
         <NoProductsContainer>
-          {!mobile && <HiArrowUp
+         {/* {!mobile && <HiArrowUp
             style={{
               width: '64px',
               height: '64px',
@@ -70,7 +70,7 @@ export const DiaryProductsList = () => {
               height: '64px',
               color: `${isChristmas ? '#9B9FAA' : 'black'}`,
             }}
-          />}
+          />} */}
         </NoProductsContainer>
       )}
     </List>
