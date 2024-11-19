@@ -3,7 +3,7 @@ import moment from "moment";
 
 const productsState = {
   date: moment().format("DD.MM.YYYY"),
-  productsList: [],  // Inițializare corectă ca array gol
+  productsList: [], 
 }
 
 const productsSlice = createSlice({
@@ -14,7 +14,6 @@ const productsSlice = createSlice({
       state.date = action.payload;
     },
     setProducts(state, action) {
-      // Asigură-te că productsList este întotdeauna un array valid
       state.productsList = Array.isArray(action.payload) ? action.payload : [];
     },
   },

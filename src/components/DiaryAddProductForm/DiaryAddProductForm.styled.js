@@ -159,18 +159,24 @@ export const FormWrapper = styled(Form)`
 `;
 
 export const SearchBox = styled.ul`
-  display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
   background-color: white;
-  width: 450px;
-  box-shadow: 5px 4px 9px -3px rgba(0,0,0,0.53);
+  border: 1px solid #ccc;
+  z-index: 10;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+
   &.visible {
     display: block;
   }
-  @media(max-width: 425px) {
-    top: 40px;
-  }
 `;
+
 
 export const SearchItem = styled.li`
   cursor: pointer;

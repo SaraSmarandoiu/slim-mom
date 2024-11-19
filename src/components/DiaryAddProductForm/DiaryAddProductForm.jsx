@@ -14,7 +14,7 @@ import {
   GramsError,
   SearchItemNotRecommended
 } from './DiaryAddProductForm.styled';
-import AddIcon from "../../images/svg/add.svg"
+import AddIcon from "../../images/svg/add.svg";
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from '../../redux/authSelectors';
@@ -31,76 +31,82 @@ const schema = yup.object().shape({
     .number('Grams must be a number')
     .typeError('Grams must be a number')
     .required('Grams is required field')
-})
+});
 
-export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
-  const token = useSelector(getToken)
-  const dispatch = useDispatch()
-  const date = useSelector(selectDate)
+export const DiaryAddProductForm = ({ onClose, isModalOpened }) => {
+  const token = useSelector(getToken);
+  const dispatch = useDispatch();
+  const date = useSelector(selectDate);
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
   const initialValues = {
     productName: '',
     productWeight: '',
   };
-  const [searchProducts, setSearchProducts] = useState([])
-  const [visible, setVisible] = useState(false)
-  const userInfo = useSelector(getUserInfo)
+  const [searchProducts, setSearchProducts] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const userInfo = useSelector(getUserInfo);
 
   const search = async (value) => {
-    console.log('Searching for:', value)
+    console.log('Searching for:', value);
     try {
-      const result = await apiGetSearchProducts(value)
+      const result = await apiGetSearchProducts(value);
       console.log('Search result:', result);
-      setSearchProducts(result)
+      setSearchProducts(result || []);
+      setVisible(result.length > 0);
     } catch (error) {
       console.error('Search error:', error);
-      setSearchProducts([])
+      setSearchProducts([]);
+      setVisible(false);
     }
-  }
+  };
+
   const headers = {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json'
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    const { productName, productWeight } = values
+    const { productName, productWeight } = values;
     console.log('Submitting:', values);
-    const body = {productName, productWeight: isNaN(parseInt(productWeight)) ? 0 : parseInt(productWeight), date}
+    const body = {
+      productName,
+      productWeight: isNaN(parseInt(productWeight)) ? 0 : parseInt(productWeight),
+      date
+    };
     try {
-      const result = await apiAddMyProduct(body, token, date, { headers })
+      const result = await apiAddMyProduct(body, token, date, { headers });
       console.log('Add product result:', result);
-      if(result.length>0) {
-        dispatch(setProducts(result))
+      if (result.length > 0) {
+        dispatch(setProducts(result));
       } else {
-        dispatch(setProducts([]))
+        dispatch(setProducts([]));
       }
     } catch (error) {
       console.error('Submit error:', error);
-      alert("Oops.. Product not found!")
+      alert("Oops.. Product not found!");
     }
-    mobile && onClose()
-    resetForm()
-  }
+    mobile && onClose();
+    resetForm();
+    setVisible(false); 
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "productName" && value.length > 1) {
       search(value);
-      setVisible(true);
     } else {
       setVisible(false);
       setSearchProducts([]);
     }
   };
-  
 
   const handleClick = (setFieldValue, title) => {
-    setVisible(false)
-    setFieldValue("productName", title)
-  }
+    setVisible(false);
+    setFieldValue("productName", title);
+  };
 
   return (
-      <Box position="relative" my="40px">
+    <Box position="relative" my="40px">
       <Formik
         enableReinitialize={true}
         initialValues={initialValues}
@@ -124,19 +130,43 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
                 autoComplete="off"
               />
               <ErrorMessage name='productWeight' component={GramsError} />
-              {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
+              {mobile ? (
+                <Button type="submit">Add</Button>
+              ) : (
+                <Button type="submit">
+                  <img src={AddIcon} alt="add product" />
+                </Button>
+              )}
             </FormWrapper>
-            <SearchBox className={visible ? "visible" : null}>
-            {searchProducts.length > 0 && searchProducts.map((product) => {
-                if(userInfo.notAllowedProductsAll.find(el => el === product.title.ua)) {
-                  return <SearchItemNotRecommended key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItemNotRecommended>
-                }
-                return <SearchItem key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItem>
-              })}
-            </SearchBox>
+            {visible && (
+              <SearchBox>
+                {searchProducts.map((product) => {
+                  const isNotRecommended =
+                    userInfo?.notAllowedProductsAll &&
+                    Array.isArray(userInfo.notAllowedProductsAll) &&
+                    userInfo.notAllowedProductsAll.find((el) => el === product.title.ua);
+
+                  return isNotRecommended ? (
+                    <SearchItemNotRecommended
+                      key={product._id}
+                      onClick={() => handleClick(setFieldValue, product.title.ua)}
+                    >
+                      {product.title.ua}
+                    </SearchItemNotRecommended>
+                  ) : (
+                    <SearchItem
+                      key={product._id}
+                      onClick={() => handleClick(setFieldValue, product.title.ua)}
+                    >
+                      {product.title.ua}
+                    </SearchItem>
+                  );
+                })}
+              </SearchBox>
+            )}
           </Box>
         )}
       </Formik>
     </Box>
-  )
-}
+  );
+};

@@ -9,16 +9,13 @@ import { apiListMyProducts } from '../../services/api/api';
 
 export const DiaryProductsList = () => {
   const dispatch = useDispatch();
-  const products = useSelector(getProducts);
+  const products = useSelector(getProducts) || [];  
   const date = useSelector(selectDate);
   const token = useSelector(getToken);
 
-  // Verificare de siguranță pentru produse
-  const safeProducts = Array.isArray(products) && products !== null ? products : [];
-
   useEffect(() => {
     const fetchProducts = async () => {
-      if (!date || !token) return; // Asigură-te că datele necesare sunt disponibile
+      if (!date || !token) return;
 
       try {
         const result = await apiListMyProducts(date, token);
@@ -29,15 +26,14 @@ export const DiaryProductsList = () => {
         }
       } catch (error) {
         console.error("Error fetching products:", error);
-        dispatch(setProducts([])); // Asigurare că produsele sunt golite în caz de eroare
+        dispatch(setProducts([]));
       }
     };
 
     fetchProducts();
-  }, [date, dispatch, token]);
+  }, [date, token, dispatch]);
 
-  // Verificare suplimentară pentru a preveni erorile
-  if (!safeProducts || !Array.isArray(safeProducts) || safeProducts.length === 0) {
+  if (!Array.isArray(products) || products.length === 0) {
     return (
       <NoProductsContainer>
         <p>Let's add some products!</p>
@@ -46,8 +42,8 @@ export const DiaryProductsList = () => {
   }
 
   return (
-    <List className={safeProducts.length > 4 ? null : 'hidden'}>
-      {safeProducts.map((product) => (
+    <List>
+      {products.map((product) => (
         product && product._id ? (
           <DiaryProductsListItem
             key={product._id}

@@ -37,9 +37,7 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   const token = useSelector(getToken);
   const date = useSelector((state) => state.products.date);
-  const products = useSelector(getProducts);
-
-  // Folosim hook-ul pentru a bloca scroll-ul când modalul este deschis
+  const products = useSelector(getProducts) || [];
   useLockBodyScroll(isModalOpened);
 
   useEffect(() => {
