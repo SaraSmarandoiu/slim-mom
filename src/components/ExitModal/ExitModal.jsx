@@ -32,11 +32,6 @@ export const ExitModal = ({ onClose, handleLogout }) => {
           <h2 style={{ textAlign: 'center' }}>
             Are you sure you want to log out?
           </h2>
-          <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/43d5c285197371.5d7503eab20c1.gif"
-            alt="cat"
-            height={isMobile ? '300' : '400'}
-          />
         </InnerInfo>
         <ButtonWrapper
           style={
