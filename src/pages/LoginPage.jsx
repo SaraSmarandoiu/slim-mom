@@ -1,8 +1,6 @@
-
 import React, { useContext, useState } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useLogInUserMutation } from '../redux/auth';
@@ -27,7 +25,7 @@ const schema = yup.object().shape({
   password: yup
     .string()
     .min(6, 'Password must be more than or equal to 6 letters')
-    .max(16, 'Pame must be more than or equal to 16 letters')
+    .max(16, 'Password must be more than or equal to 16 letters')
     .required('Password is required field'),
 });
 
@@ -44,10 +42,14 @@ const LoginPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
-    const user = await loginUser(values).unwrap();
-    dispatch(setUser(user));
-    navigate(routes.diary);
-    resetForm();
+    try {
+      const user = await loginUser(values).unwrap();
+      dispatch(setUser(user));
+      navigate(routes.diary);
+      resetForm();
+    } catch (error) {
+      console.error("Login error: ", error);
+    }
   };
 
   const handleClick = () => {
@@ -68,68 +70,70 @@ const LoginPage = () => {
           onSubmit={handleSubmit}
           validationSchema={schema}
         >
-          <Form>
-            <List style={{ display: 'grid', gridTemplateColumns: 'revert' }}>
-              <li>
-                <label>
-                  <Input type="email" name="email" placeholder="Email *" />
-                  <ErrorMessage name="email" component={Error} />
-                  {status === 'rejected' && (
-                    <Error>Email or password is wrong</Error>
-                  )}
-                </label>
-              </li>
+          {({ values }) => (
+            <Form>
+              <List style={{ display: 'grid', gridTemplateColumns: 'revert' }}>
+                <li>
+                  <label>
+                    <Input type="email" name="email" placeholder="Email *" />
+                    <ErrorMessage name="email" component={Error} />
+                    {status === 'rejected' && (
+                      <Error>Email or password is wrong</Error>
+                    )}
+                  </label>
+                </li>
 
-              <li>
-                <label style={{ position: 'relative' }}>
-                  <Input
-                    type={isShowPassword ? 'text' : 'password'}
-                    name="password"
-                    placeholder="Password *"
-                    maxLength="16"
-                  />
-                  {isShowPassword ? (
-                    <AiFillEyeInvisible
-                      onClick={handleShowPassword}
-                      style={{
-                        position: 'absolute',
-                        top: '0px',
-                        left: '250px',
-                        color: '#FC842D',
-                      }}
+                <li>
+                  <label style={{ position: 'relative' }}>
+                    <Input
+                      type={isShowPassword ? 'text' : 'password'}
+                      name="password"
+                      placeholder="Password *"
+                      maxLength="16"
                     />
-                  ) : (
-                    <AiFillEye
-                      onClick={handleShowPassword}
-                      style={{
-                        position: 'absolute',
-                        top: '0px',
-                        left: '250px',
-                        color: '#FC842D',
-                      }}
-                    />
-                  )}
-                  <ErrorMessage name="password" component={Error} />
-                  {status === 'rejected' && (
-                    <Error>Email or password is wrong</Error>
-                  )}
-                </label>
-              </li>
-            </List>
-            <ButtonWrapper>
-              <Button type="submit" full={true} style={{ width: '200px' }}>
-                Log In
-              </Button>
-              <div onClick={handleClick}>
-                <Button type="button" full={false}>
-                  Register
+                    {isShowPassword ? (
+                      <AiFillEyeInvisible
+                        onClick={handleShowPassword}
+                        style={{
+                          position: 'absolute',
+                          top: '0px',
+                          left: '250px',
+                          color: '#FC842D',
+                        }}
+                      />
+                    ) : (
+                      <AiFillEye
+                        onClick={handleShowPassword}
+                        style={{
+                          position: 'absolute',
+                          top: '0px',
+                          left: '250px',
+                          color: '#FC842D',
+                        }}
+                      />
+                    )}
+                    <ErrorMessage name="password" component={Error} />
+                    {status === 'rejected' && (
+                      <Error>Email or password is wrong</Error>
+                    )}
+                  </label>
+                </li>
+              </List>
+              <ButtonWrapper>
+                <Button type="submit" full={true} style={{ width: '200px' }}>
+                  Log In
                 </Button>
-              </div>
-              <ButtonGoogle href="http://localhost:5000/api/auth/google-login">
-                log in Google
-              </ButtonGoogle>
-            </ButtonWrapper>
-          </Form>
+                <div onClick={handleClick}>
+                  <Button type="button" full={false}>
+                    Register
+                  </Button>
+                </div>
+                <ButtonGoogle href="http://localhost:5000/api/auth/google-login">
+                  log in Google
+                </ButtonGoogle>
+              </ButtonWrapper>
+            </Form>
+          )}
         </Formik>
       </Wrapper>
     </WrapperWithFruits>

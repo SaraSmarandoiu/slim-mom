@@ -1,10 +1,9 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 import moment from "moment";
-// const date = moment().format("DD.MM.YYYY") 
+
 const productsState = {
   date: moment().format("DD.MM.YYYY"),
-  productsList: []
+  productsList: [],  // Inițializare corectă ca array gol
 }
 
 const productsSlice = createSlice({
@@ -12,10 +11,11 @@ const productsSlice = createSlice({
   initialState: productsState,
   reducers: {
     setDate(state, action) {
-      state.date = action.payload
+      state.date = action.payload;
     },
     setProducts(state, action) {
-      state.productsList = action.payload
+      // Asigură-te că productsList este întotdeauna un array valid
+      state.productsList = Array.isArray(action.payload) ? action.payload : [];
     },
   },
 });
