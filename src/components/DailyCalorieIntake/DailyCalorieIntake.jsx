@@ -10,7 +10,6 @@ import {
   ButtonWrapper,
   ButtonForm,
 } from './DailyCalorieIntake.styled';
-
 const DailyCalorieIntake = ({ backResponse, userParams }) => {
   const navigate = useNavigate();
   const location = useLocation();

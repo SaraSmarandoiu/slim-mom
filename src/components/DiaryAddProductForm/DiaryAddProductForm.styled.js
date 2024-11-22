@@ -163,11 +163,11 @@ export const SearchBox = styled.ul`
   top: 100%;
   left: 0;
   right: 0;
-  max-height: 200px;
+  max-height: 700px;
   overflow-y: auto;
   background-color: white;
   border: 1px solid #ccc;
-  z-index: 10;
+  z-index: 9999;
   list-style: none;
   padding: 10px;
   margin: 0;

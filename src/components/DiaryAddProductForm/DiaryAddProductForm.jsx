@@ -144,21 +144,21 @@ export const DiaryAddProductForm = ({ onClose, isModalOpened }) => {
                   const isNotRecommended =
                     userInfo?.notAllowedProductsAll &&
                     Array.isArray(userInfo.notAllowedProductsAll) &&
-                    userInfo.notAllowedProductsAll.find((el) => el === product.title.ua);
+                    userInfo.notAllowedProductsAll.find((el) => el === product.title);
 
                   return isNotRecommended ? (
                     <SearchItemNotRecommended
                       key={product._id}
-                      onClick={() => handleClick(setFieldValue, product.title.ua)}
+                      onClick={() => handleClick(setFieldValue, product.title)}
                     >
-                      {product.title.ua}
+                      {product.title}
                     </SearchItemNotRecommended>
                   ) : (
                     <SearchItem
                       key={product._id}
-                      onClick={() => handleClick(setFieldValue, product.title.ua)}
+                      onClick={() => handleClick(setFieldValue, product.title)}
                     >
-                      {product.title.ua}
+                      {product.title}
                     </SearchItem>
                   );
                 })}
