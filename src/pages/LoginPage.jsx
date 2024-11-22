@@ -14,7 +14,6 @@ import {
   H2,
   Wrapper,
 } from '../components/RegisterPage/RegisterPage.styled';
-import { ButtonGoogle } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
 
@@ -126,9 +125,6 @@ const LoginPage = () => {
                     Register
                   </Button>
                 </div>
-                <ButtonGoogle href="http://localhost:5000/api/auth/google-login">
-                  log in Google
-                </ButtonGoogle>
               </ButtonWrapper>
             </Form>
           )}

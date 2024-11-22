@@ -1,29 +1,25 @@
-
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { H2, WrapperWtithFruits } from '../components/Home/Home.styled';
 import { WeightForm } from '../components/Form/Form';
 import { Box } from '../components/Box';
-import { useState } from 'react';
 import Modal from '../components/Modal/Modal';
-import { setUserGoogle, setInfoUser } from '../redux/authSlice';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { useUpdateGoogleUserMutation } from '../redux/auth';
+import { setInfoUser } from '../redux/authSlice';
 
 export const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
   const dispatch = useDispatch();
 
-  const [updateGoogleUser] = useUpdateGoogleUserMutation();
-
   const body = document.querySelector('body');
 
   const onModalClose = () => {
-    setIsModalOpened(isModalOpened => !isModalOpened);
-    body.style.overflow = 'auto';
+    setIsModalOpened(false); // Setăm modalul la închis
+    body.style.overflow = 'auto'; // Permitem derularea paginii
   };
 
   useEffect(() => {
+    // Extrage parametrii din URL
     const queryStr = window.location.search
       .replace('?', '')
       .split('&')
@@ -34,29 +30,25 @@ export const Home = () => {
       }, {});
 
     if (!queryStr.name) {
-      return;
+      return; // Dacă nu există parametru 'name', nu facem nimic
     }
 
-    const paramsLocalStorage = JSON.parse(localStorage.getItem('params'));
-
-    if (!queryStr.userid) {
-      dispatch(setUserGoogle(queryStr));
-      return;
-    }
+    const paramsLocalStorage = JSON.parse(localStorage.getItem('params')) || {};
 
     const newUser = {
       ...queryStr,
       ...paramsLocalStorage,
     };
-    delete newUser.name;
-    delete newUser.token;
-    delete newUser.email;
 
-    updateGoogleUser(newUser).unwrap();
+    delete newUser.name;  // Ștergem 'name' dacă există
+    delete newUser.token; // Ștergem 'token' dacă există
+    delete newUser.email; // Ștergem 'email' dacă există
 
+    // Salvăm informațiile utilizatorului în Redux
     dispatch(setInfoUser(paramsLocalStorage));
-    dispatch(setUserGoogle(queryStr));
-  }, [dispatch, updateGoogleUser]);
+
+    setUserParams(newUser); // Actualizăm starea userParams cu noile date
+  }, [dispatch]);
 
   return (
     <WrapperWtithFruits>
@@ -66,8 +58,8 @@ export const Home = () => {
         )}
         <H2>Calculate your daily calorie intake right now</H2>
         <WeightForm
-          openModal={setIsModalOpened}
-          setUserParams={setUserParams}
+          openModal={setIsModalOpened} // Setează starea pentru a deschide modalul
+          setUserParams={setUserParams} // Setează parametrii utilizatorului
         />
       </Box>
     </WrapperWtithFruits>

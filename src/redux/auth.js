@@ -45,13 +45,6 @@ export const authApi = createApi({
       query: a => `/users/current${a}`,
     }),
 
-    updateGoogleUser: builder.mutation({
-      query: user => ({
-        url: `/auth/update/user`,
-        method: 'POST',
-        body: user,
-      }),
-    }),
   }),
 });
 
@@ -60,5 +53,4 @@ export const {
   useLogInUserMutation,
   useLogOutUserMutation,
   useGetUserQuery,
-  useUpdateGoogleUserMutation,
 } = authApi;

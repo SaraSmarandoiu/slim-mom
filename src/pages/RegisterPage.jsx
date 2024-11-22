@@ -14,7 +14,6 @@ import {
   ButtonWrapper,
   H2,
   Wrapper,
-  ButtonGoogle,
 } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
@@ -143,9 +142,6 @@ const RegisterPage = () => {
                   Log In
                 </Button>
               </div>
-              <ButtonGoogle href="http://localhost:3000/api/auth/google-signup">
-                Register Google
-              </ButtonGoogle>
             </ButtonWrapper>
           </Form>
         </Formik>

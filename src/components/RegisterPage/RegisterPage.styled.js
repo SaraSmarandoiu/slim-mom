@@ -98,24 +98,4 @@ export const WrapperWithFruits = styled.div`
   }
 `;
 
-export const ButtonGoogle = styled.a`
-  text-decoration: none;
-  font-family: 'VerdanaBold, sans-serif';
-  line-height: 1.2;
-  font-size: 14px;
 
-  border-radius: 30px;
-  border: 2px solid #FC842D;
-  color: #FC842D;
-  width: 182px;
-  height: 44px;
-  transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:hover,
-  &:focus {
-    background: #f07116;
-    color: #ffffff;
-  }
-`;

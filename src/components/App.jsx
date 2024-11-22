@@ -10,7 +10,6 @@ import { useGetUserQuery } from '../redux/auth';
 import { setCurrentUser } from '../redux/authSlice';
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { PublicRoute } from './Routes/PublicRoute';
-import { DesktopApp } from './DesktopApp/DesktopApp';
 const Login = lazy(() => import('../pages/LoginPage'));
 const Register = lazy(() => import('../pages/RegisterPage'));
 const Diary = lazy(() => import('../pages/DiaryPage'));
@@ -80,14 +79,6 @@ export const App = () => {
               element={
                 <PrivateRoute>
                   <Calculator />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="desktop"
-              element={
-                <PrivateRoute>
-                  <DesktopApp />
                 </PrivateRoute>
               }
             />
