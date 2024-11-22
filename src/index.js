@@ -9,10 +9,11 @@ import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeContextProvider } from '../src/components/Context/Context';
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeContextProvider>
+      <ThemeContextProvider >
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter basename="/SaraSmarandoiu/slim-mom">
             <App />

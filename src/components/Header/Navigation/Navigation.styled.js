@@ -13,7 +13,7 @@ export const StyledLink = styled(NavLink)`
   color: #9b9faa;
   height: 100%;
   &.active {
-    color: ${p => p.theme.colors.white};
+    color: #ffffff;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     font-size: 24px;
@@ -21,24 +21,24 @@ export const StyledLink = styled(NavLink)`
   }
   @media (min-width: 1024px) {
     padding: 0;
-    border: ${p => p.theme.borders.none};
-    font-family: ${p => p.theme.fonts.tertiary};
-    line-height: ${p => p.theme.lineHeights.body};
-    font-size: ${p => p.theme.fontSizes[0]};
+    border: none;
+    font-family: 'GothamProBold';
+    line-height: 1.2;
+    font-size: 14px;
     text-align: right;
     letter-spacing: 0.04em;
 
     text-transform: uppercase;
     background: transparent;
-    color: ${p => p.theme.colors.black};
+    color: #212121;
     text-decoration: none;
 
     &.active {
-      color: ${p => p.theme.colors.gray};
+      color: #9B9FAA;
     }
     &:hover,
     &:focus {
-      color: ${p => p.theme.colors.gray};
+      color: #9B9FAA;
     }
   }
 `;

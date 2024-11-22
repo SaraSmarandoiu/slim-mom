@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
-  font-size: ${p => p.theme.fontSizes[0]};
-  color: ${p => p.theme.colors.black};
+  font-size: 14px;
+  color: #212121;
 
   @media (min-width: 426px) and (max-width: 1023px) {
     padding-right: 40px;
@@ -15,9 +15,9 @@ export const Item = styled.li`
 
   & .products-item-name {
     text-align: left;
-    font-family: ${p => p.theme.fonts.secondary};
+    font-family: 'VerdanaRegular, sans-serif';
     width: 130px;
-    border-bottom: ${p => p.theme.borders.normal};
+    border-bottom: 1px solid #E0E0E0;
     padding: 8px 0;
 
     @media (min-width: 426px) and (max-width: 1023px) {
@@ -32,9 +32,9 @@ export const Item = styled.li`
 
   & .products-item-grams {
     text-align: right;
-    font-family: ${p => p.theme.fonts.secondary};
+    font-family: 'VerdanaRegular, sans-serif';
     width: 49px;
-    border-bottom: ${p => p.theme.borders.normal};
+    border-bottom: 1px solid #E0E0E0;
     margin: 0 8px;
     padding: 8px 0;
 
@@ -50,9 +50,9 @@ export const Item = styled.li`
 
   & .products-item-calories {
     text-align: right;
-    font-family: ${p => p.theme.fonts.secondary};
+    font-family: 'VerdanaRegular, sans-serif';
     width: 58px;
-    border-bottom: ${p => p.theme.borders.normal};
+    border-bottom: 1px solid #E0E0E0;
     padding: 8px 0;
 
     @media (min-width: 426px) and (max-width: 1023px) {

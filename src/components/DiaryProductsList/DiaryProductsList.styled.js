@@ -22,8 +22,8 @@ export const NoProductsContainer = styled.div`
     text-align: start;
   }
   & p {
-    font-size: ${p => p.theme.fontSizes[1]};
-    font-family: ${p => p.theme.fonts.body};
+    font-size: 18px;
+    font-family: 'VerdanaBold, sans-serif';
     @media(max-width: 425px) {
       padding: 20px 0 30px;
     }

@@ -1,17 +1,13 @@
-import { ThemeContext } from '../Context/Context';
 import { useMediaQuery } from 'react-responsive';
-import React, { useContext } from 'react';
-import Snowfall from 'react-snowfall';
+import React from 'react';
 import { DeskApp } from './DesktopApp.styled';
 import picture from '../../images/desktopApp.png';
 
 export const DesktopApp = () => {
-  const { isChristmas } = useContext(ThemeContext);
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
 
   return (
     <>
-      {isChristmas && <Snowfall />}
       <DeskApp>
         <h2>
           You can download the desktop version of the program to your Windows PC

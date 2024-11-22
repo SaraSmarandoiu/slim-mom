@@ -6,17 +6,17 @@ export const Input = styled(Field)`
   width: 100%;
   padding-bottom: 8px;
   margin-bottom: 32px;
-  border-bottom: ${p => p.theme.borders.normal};
-  font-family: ${p => p.theme.fonts.body};
-  /* line-height: ${p => p.theme.lineHeights.body}; */
+  border-bottom: 1px solid #E0E0E0;
+  font-family: 'VerdanaBold, sans-serif';
+
   line-height: 16px;
-  font-size: ${p => p.theme.fontSizes[0]};
-  color: ${p => p.theme.colors.black};
+  font-size: 14px;
+  color: #212121;
   letter-spacing: 0.04em;
   background-color: transparent;
 
   &::placeholder {
-    color: ${p => p.theme.colors.gray};
+    color: #9B9FAA;
     opacity: 1;
   }
   &:focus-visible {
@@ -25,7 +25,7 @@ export const Input = styled(Field)`
   &:hover,
   &:focus {
     &::placeholder {
-      color: ${p => p.theme.colors.orange};
+      color: #FC842D ;
     }
   }
   @media (min-width: 554px) and (max-width: 1023px) {
@@ -42,14 +42,14 @@ export const Input = styled(Field)`
 
 export const Paragraph = styled.p`
   margin-bottom: 8px;
-  font-family: ${p => p.theme.fonts.body};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
-  color: ${p => p.theme.colors.gray};
+  font-family: 'VerdanaBold, sans-serif';
+  line-height: 1.2;
+  font-size: 14px;
+  color: #9B9FAA;
   letter-spacing: 0.04em;
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.orange};
+    color: #FC842D;
   }
 
   @media (min-width: 426px) and (max-width: 1023px) {
@@ -72,9 +72,9 @@ export const Checkbox = styled(Field)`
   &:checked {
     appearance: none;
     border-radius: 50%;
-    background: ${p => p.theme.colors.orange};
+    background: #FC842D;
     border: 5px solid #fff;
-    box-shadow: 0 0 0 1px ${p => p.theme.colors.gray};
+    box-shadow: 0 0 0 1px #9B9FAA;
   }
 `;
 
@@ -87,7 +87,7 @@ export const CheckboxContainer = styled.div`
 export const Label = styled.label`
   display: flex;
   align-items: center;
-  color: ${p => p.theme.colors.orange};
+  color: #FC842D;
 `;
 
 export const Error = styled.div`
@@ -143,69 +143,69 @@ export const ButtonWrapper = styled.div`
 export const ButtonForm = styled.button`
   padding: 13px 25px;
   border-radius: 30px;
-  border: ${p => p.theme.borders.none};
-  font-family: ${p => p.theme.fonts.body};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  border: none;
+  font-family: 'VerdanaBold, sans-serif';
+  line-height: 1.2;
+  font-size: 14px;
   letter-spacing: 0.04em;
   display: block;
   cursor: pointer;
 
-  color: ${p => p.theme.colors.white};
-  background: ${p => p.theme.colors.orange};
+  color: #ffffff;
+  background: #FC842D;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   position: relative;
   &:hover,
   :focus {
-    background: ${p => p.theme.colors.hover};
+    background: #f07116 ;
     /* &::before {
       content: '';
-      position: ${p => p.theme.btnBefore.position};
-      top: ${p => p.theme.btnBefore.top};
-      left: ${p => p.theme.btnBefore.left};
-      width: ${p => p.theme.btnBefore.width};
-      height: ${p => p.theme.btnBefore.height};
-      background: ${p => p.theme.btnBefore.background};
-      border-radius: ${p => p.theme.btnBefore.borderRadius};
-      box-shadow: ${p => p.theme.btnBefore.boxShadow};
+      position: none;
+      top: none;
+      left: none;
+      width: none;
+      height: none;
+      background: none;
+      border-radius: none;
+      box-shadow: none;
       opacity: 0;
     }
     &::after {
       content: '';
-      position: ${p => p.theme.btnAfter.position};
-      top: ${p => p.theme.btnAfter.top};
-      left: ${p => p.theme.btnAfter.left};
-      width: ${p => p.theme.btnAfter.width};
-      height: ${p => p.theme.btnAfter.height};
-      background: ${p => p.theme.btnAfter.background};
-      border-radius: ${p => p.theme.btnAfter.borderRadius};
-      box-shadow: ${p => p.theme.btnAfter.boxShadow};
+      position: none;
+      top: none;
+      left: none;
+      width: none;
+      height: none;
+      background: none;
+      border-radius: none;
+      box-shadow: none;
       opacity: 0;
     } */
   }
   &::before {
     content: '';
-    position: ${p => p.theme.btnBefore.position};
-    top: ${p => p.theme.btnBefore.top};
-    left: ${p => p.theme.btnBefore.left};
-    width: ${p => p.theme.btnBefore.width};
-    height: ${p => p.theme.btnBefore.height};
-    background: ${p => p.theme.btnBefore.background};
-    border-radius: ${p => p.theme.btnBefore.borderRadius};
-    box-shadow: ${p => p.theme.btnBefore.boxShadow};
+    position: none;
+    top: none;
+    left: none;
+    width: none;
+    height: none;
+    background: none;
+    border-radius: none;
+    box-shadow: none;
     opacity: 1;
     transition: opacity 700ms linear;
   }
   &::after {
     content: '';
-    position: ${p => p.theme.btnAfter.position};
-    top: ${p => p.theme.btnAfter.top};
-    left: ${p => p.theme.btnAfter.left};
-    width: ${p => p.theme.btnAfter.width};
-    height: ${p => p.theme.btnAfter.height};
-    background: ${p => p.theme.btnAfter.background};
-    border-radius: ${p => p.theme.btnAfter.borderRadius};
-    box-shadow: ${p => p.theme.btnAfter.boxShadow};
+    position: none;
+    top: none;
+    left: none;
+    width: none;
+    height: none;
+    background none; 
+    border-radius: none;
+    box-shadow: none;
     opacity: 1;
     transition: opacity 700ms linear;
   }

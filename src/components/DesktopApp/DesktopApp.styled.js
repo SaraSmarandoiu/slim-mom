@@ -5,7 +5,7 @@ export const DeskApp = styled.div`
   padding-top: 50px;
   text-align: center;
   padding-bottom: 300px;
-  color: ${p => p.theme.colors.black};
+  color:;
   @media (min-width: 426px) and (max-width: 1023px) {
     padding-top: 70px;
     padding-bottom: 450px;

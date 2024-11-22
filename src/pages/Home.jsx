@@ -1,12 +1,9 @@
 
 import { H2, WrapperWtithFruits } from '../components/Home/Home.styled';
 import { WeightForm } from '../components/Form/Form';
-import React, { useContext } from 'react';
 import { Box } from '../components/Box';
 import { useState } from 'react';
 import Modal from '../components/Modal/Modal';
-import Snowfall from 'react-snowfall';
-import { ThemeContext } from '../components/Context/Context';
 import { setUserGoogle, setInfoUser } from '../redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -15,7 +12,6 @@ import { useUpdateGoogleUserMutation } from '../redux/auth';
 export const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
-  const { isChristmas } = useContext(ThemeContext);
   const dispatch = useDispatch();
 
   const [updateGoogleUser] = useUpdateGoogleUserMutation();
@@ -64,7 +60,6 @@ export const Home = () => {
 
   return (
     <WrapperWtithFruits>
-      {isChristmas && <Snowfall />}
       <Box maxWidth={'1280px'} m={'0 auto'}>
         {isModalOpened && (
           <Modal onClose={onModalClose} userParams={userParams} />

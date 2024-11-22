@@ -5,9 +5,9 @@ export const Section = styled.div`
   gap: 32px;
   justify-content: flex-end;
   padding: 15px 20px 8px;
-  background-color: ${p => p.theme.colors.backgroundGray};
+  background-color: #F0F1F3;
   @media (max-width: 425px) {
-    position: relative; // set position relative in order to see user section when modal on phone is opened
+    position: relative; 
     z-index: 21;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
@@ -25,16 +25,16 @@ export const Section = styled.div`
 
 export const Name = styled.button`
   padding: 0;
-  border: ${p => p.theme.borders.none};
-  font-family: ${p => p.theme.fonts.tertiary};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  border: none;
+  font-family: 'GothamProBold';
+  line-height: 1.2;
+  font-size: 14px;
   text-align: right;
   letter-spacing: 0.04em;
   background: transparent;
 
   text-transform: uppercase;
-  color: ${p => p.theme.colors.black};
+  color: #212121;
   @media (min-width: 426px) and (max-width: 1023px) {
     background: transparent;
   }
@@ -45,20 +45,20 @@ export const Name = styled.button`
 
 export const Exit = styled.button`
   padding: 0;
-  border: ${p => p.theme.borders.none};
-  font-family: ${p => p.theme.fonts.tertiary};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  border: none;
+  font-family: 'GothamProBold';
+  line-height: 1.2;
+  font-size: 14px;
   text-align: right;
   letter-spacing: 0.04em;
   background: transparent;
 
-  color: ${p => p.theme.colors.black};
+  color: #212121;
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
   &:hover {
-    color: ${p => p.theme.colors.gray};
+    color: #9B9FAA;
   }
   &:before {
     content: '';

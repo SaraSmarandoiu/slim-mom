@@ -89,8 +89,8 @@ export const Wrapper = styled.div`
 export const Button = styled.button`
   padding: 12px 13px 11px;
   border-radius: 50%;
-  border: ${p => p.theme.borders.none};
-  background: ${p => p.theme.colors.orange};
+  border: none;
+  background: #FC842D;
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   margin-top: 40px;

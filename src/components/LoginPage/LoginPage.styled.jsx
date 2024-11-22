@@ -7,14 +7,14 @@ export const FormLabel = styled.label`
   }
 
   display: block;
-  font-family: ${p => p.theme.fonts.body};
+  font-family: 'VerdanaBold, sans-serif';
   height: 36px;
   padding-bottom: 40px;
   font-style: normal;
-  font-size: ${p => p.theme.fontSizes[0]};
+  font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: ${p => p.theme.colors.gray};
+  color: #9B9FAA;
 `;
 
 export const LoginButton = styled.button`
@@ -28,8 +28,8 @@ export const LoginButton = styled.button`
   border-radius: 30px;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border: none;
-  font-family: ${p => p.theme.fonts.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  font-family: 'VerdanaBold, sans-serif';
+  font-size: 14px;
   line-height: 17px;
   display: flex;
   align-items: center;
@@ -48,8 +48,8 @@ export const RegisterButton = styled.button`
   background-color: #ffffff;
   border-radius: 30px;
   border: 2px solid #fc842d;
-  font-family: ${p => p.theme.fonts.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  font-family: 'VerdanaBold, sans-serif';
+  font-size: 14px;
   line-height: 17px;
   display: flex;
   align-items: center;
@@ -63,13 +63,13 @@ export const FormInput = styled(Field)`
   height: 20px;
   width: 280px;
   padding: 0px;
-  border-bottom: ${p => p.theme.borders.normal};
-  border-top: ${p => p.theme.borders.none};
-  border-right: ${p => p.theme.borders.none};
-  border-left: ${p => p.theme.borders.none};
+  border-bottom: 1px solid #E0E0E0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
   outline: none;
   :focus {
-    border-color: ${p => p.theme.colors.orange};
+    border-color: #FC842D;
   }
 `;
 
@@ -83,11 +83,11 @@ export const Wrapper = styled.div`
 `;
 
 export const RegisterHeader = styled.h2`
-  font-family: ${p => p.theme.fonts.body};
+  font-family: 'VerdanaBold, sans-serif';
   margin-bottom: 60px;
-  font-size: ${p => p.theme.fontSizes[0]};
+  font-size: 14px;
   line-height: 17px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: ${p => p.theme.colors.orange};
+  color: #FC842D;
 `;

@@ -5,7 +5,7 @@ import logoTabletRetina from '../../images/logo/logoTablet@2x.png';
 import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { BtnList, HeaderStyled, Logo } from './Header.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross2 } from 'react-icons/rx';
@@ -16,7 +16,6 @@ import { StyledLink } from './Header.styled';
 import { useSelector } from 'react-redux';
 import { getUserName } from '../../redux/authSelectors';
 import { useLocation } from 'react-router-dom';
-import { ThemeContext } from '../Context/Context';
 
 export const Header = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -45,7 +44,7 @@ export const Header = () => {
     }
   };
 
-  const { isChristmas } = useContext(ThemeContext);
+ 
 
   return (
     <>
@@ -70,7 +69,7 @@ export const Header = () => {
                     style={{
                       width: '24px',
                       height: '24px',
-                      color: `${isChristmas ? '#D6001C' : 'black'}`,
+                      color:  'black'
                     }}
                     onClick={() => setOpenNavigation(false)}
                   />
@@ -79,7 +78,7 @@ export const Header = () => {
                     style={{
                       width: '24px',
                       height: '24px',
-                      color: `${isChristmas ? '#D6001C' : 'black'}`,
+                      color:  'black'
                     }}
                     onClick={() => {
                       setOpenNavigation(true);

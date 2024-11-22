@@ -52,7 +52,7 @@ export const ButtonClose = styled(MdClose)`
   z-index: 10;
   &:hover,
   :focus {
-    color: ${p => p.theme.colors.hover};
+    color: #f07116;
   }
   @media (max-width: 767px) {
     display: none;
@@ -63,10 +63,10 @@ export const CloseArrow = styled(FiCornerDownLeft)`
   position: absolute;
   top: -30px;
   left: 20px;
-  color: ${p => p.theme.colors.black};
+  color: #212121;
   &:hover,
   :focus {
-    color: ${p => p.theme.colors.hover};
+    color: #f07116;
   }
   @media (min-width: 767px) {
     display: none;

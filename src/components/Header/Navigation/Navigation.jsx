@@ -13,9 +13,7 @@ export const Menu = ({ setOpenNavigation }) => {
       <StyledLink to="calculator" onClick={handleClick}>
         Calculator
       </StyledLink>
-      {/* <StyledLink to="desktop" onClick={handleClick}>
-        Desktop App
-      </StyledLink> */}
+      
     </Nav>
   );
 };

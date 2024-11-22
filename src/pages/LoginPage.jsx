@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import * as yup from 'yup';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLogInUserMutation } from '../redux/auth';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/authSlice';
-import Snowfall from 'react-snowfall';
+
 import { Error, Input, List } from '../components/Form/Form.styled';
 import { Button } from '../components/Button/Button';
 import {
@@ -17,7 +17,7 @@ import {
 import { ButtonGoogle } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
-import { ThemeContext } from '../components/Context/Context';
+
 import { routes } from '../components/Routes/routes';
 
 const schema = yup.object().shape({
@@ -38,7 +38,6 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [loginUser, { status }] = useLogInUserMutation();
   const dispatch = useDispatch();
-  const { isChristmas } = useContext(ThemeContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -61,7 +60,6 @@ const LoginPage = () => {
 
   return (
     <WrapperWithFruits>
-      {isChristmas && <Snowfall />}
       {status === 'pending' && <Loader />}
       <Wrapper style={{ paddingBottom: '255px' }}>
         <H2>Log In</H2>

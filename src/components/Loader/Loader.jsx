@@ -1,16 +1,15 @@
-import { ThemeContext } from '../Context/Context';
-import React, { useContext } from 'react';
+import React from 'react';
 import { ThreeCircles } from 'react-loader-spinner';
 import { LoaderWrapper, MainLoader } from './Loader.styled';
 
 export const Loader = () => {
-  const { isChristmas } = useContext(ThemeContext);
+  
 
   return (
     <MainLoader>
       <LoaderWrapper>
         <ThreeCircles
-          color={isChristmas ? '#D6001C' : '#FC842D'}
+          color= '#FC842D'
           arialLabel="loading-indicator"
           height="120"
           width="120"

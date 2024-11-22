@@ -7,14 +7,14 @@ export const HeaderStyled = styled.header`
   align-items: center;
   padding: 20px;
   padding-bottom: 16px;
-  border-bottom: ${p => p.theme.borders.header};
+  border-bottom: 1px solid #E0E0E0;
   @media (max-width: 425px) {
-    position: relative; // set position relative in order to see header when modal on phone is opened
+    position: relative; 
     z-index: 22;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 20px 32px;
-    /* width: calc(100% - 32px); */
+    
   }
   @media (min-width: 1024px) {
     position: absolute;
@@ -28,14 +28,12 @@ export const HeaderStyled = styled.header`
     width: calc(100% - 32px);
     margin: 0 auto;
   }
-  /* @media (min-width: 1280px) {
-    width: 1280px;
-  } */
+  
 `;
 
 export const Logo = styled.img`
   height: 44px;
-  filter: ${p => p.theme.colors.filter};
+  filter: filter;
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
@@ -68,14 +66,14 @@ export const BtnList = styled.ul`
 
 export const HeaderBtn = styled.button`
   padding: 0;
-  border: ${p => p.theme.borders.none};
-  font-family: ${p => p.theme.fonts.tertiary};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  border: none;
+  font-family: 'GothamProBold';
+  line-height: 1.2;
+  font-size: 14px;
   text-align: right;
   letter-spacing: 0.04em;
 
-  background: ${p => p.theme.colors.white};
+  background: #ffffff;
   text-transform: uppercase;
 
   @media (min-width: 426px) and (max-width: 1023px) {
@@ -97,30 +95,30 @@ export const StyledLink = styled(NavLink)`
   color: rgb(33, 33, 33);
   text-decoration: none;
   &.active {
-    color: ${p => p.theme.colors.gray};
+    color: #9B9FAA;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
     padding: 0;
-    border: ${p => p.theme.borders.none};
-    font-family: ${p => p.theme.fonts.tertiary};
-    line-height: ${p => p.theme.lineHeights.body};
-    font-size: ${p => p.theme.fontSizes[0]};
+    border: none;
+    font-family: 'GothamProBold';
+    line-height: 1.2;
+    font-size: 14px;
     text-align: right;
     letter-spacing: 0.04em;
 
     text-transform: uppercase;
     background: transparent;
-    color: ${p => p.theme.colors.black};
+    color: #212121;
     text-decoration: none;
 
     &.active {
-      color: ${p => p.theme.colors.gray};
+      color: #9B9FAA;
     }
     &:hover,
     &:focus {
-      color: ${p => p.theme.colors.gray};
+      color: #9B9FAA;
     }
   }
-`;
+`; 

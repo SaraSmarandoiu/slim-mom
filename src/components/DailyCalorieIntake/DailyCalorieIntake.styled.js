@@ -80,19 +80,19 @@ export const ButtonWrapper = styled.div`
 export const ButtonForm = styled.button`
   padding: 13px 25px;
   border-radius: 30px;
-  border: ${p => p.theme.borders.none};
-  font-family: ${p => p.theme.fonts.body};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  border: none;
+  font-family:'VerdanaBold, sans-serif';
+  line-height: 1.2;
+  font-size: 14px;
   letter-spacing: 0.04em;
   display: block;
   cursor: pointer;
 
-  color: ${p => p.theme.colors.white};
-  background: ${p => p.theme.colors.orange};
+  color:#ffffff ;
+  background: #FC842D;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   &:hover,
   &:focus {
-    background: ${p => p.theme.colors.hover};
+    background: #f07116;
   }
 `;

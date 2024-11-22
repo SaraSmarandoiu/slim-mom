@@ -44,15 +44,15 @@ export const ButtonWrapper = styled.div`
   }
 `;
 export const H2 = styled.h2`
-  font-family: ${p => p.theme.fonts.body};
+  font-family: 'VerdanaBold, sans-serif';
   font-weight: 700;
-  font-size: ${p => p.theme.fontSizes[0]};
-  line-height: ${p => p.theme.lineHeights[0]};
+  font-size: 14px;
+  line-height: 1.2;
 
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: ${p => p.theme.colors.orange};
+  color: #FC842D;
   margin-bottom: 60px;
   margin-top: 40px;
   text-align: center;
@@ -100,13 +100,13 @@ export const WrapperWithFruits = styled.div`
 
 export const ButtonGoogle = styled.a`
   text-decoration: none;
-  font-family: ${p => p.theme.fonts.body};
-  line-height: ${p => p.theme.lineHeights.body};
-  font-size: ${p => p.theme.fontSizes[0]};
+  font-family: 'VerdanaBold, sans-serif';
+  line-height: 1.2;
+  font-size: 14px;
 
   border-radius: 30px;
-  border: ${p => p.theme.borders.btn};
-  color: ${p => p.theme.colors.orange};
+  border: 2px solid #FC842D;
+  color: #FC842D;
   width: 182px;
   height: 44px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
@@ -115,7 +115,7 @@ export const ButtonGoogle = styled.a`
   justify-content: center;
   &:hover,
   &:focus {
-    background: ${p => p.theme.colors.hover};
-    color: ${p => p.theme.colors.white};
+    background: #f07116;
+    color: #ffffff;
   }
 `;

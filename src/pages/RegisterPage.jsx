@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
@@ -18,8 +18,7 @@ import {
 } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
-import Snowfall from 'react-snowfall';
-import { ThemeContext } from '../components/Context/Context';
+
 import { routes } from '../components/Routes/routes';
 
 const schema = yup.object().shape({
@@ -47,7 +46,7 @@ const initialValues = {
 };
 
 const RegisterPage = () => {
-  const { isChristmas } = useContext(ThemeContext);
+  
   const location = useLocation();
   const userDataForRegister = location.state?.userDataForRegister;
   localStorage.setItem('params', JSON.stringify(userDataForRegister));
@@ -78,7 +77,6 @@ const RegisterPage = () => {
 
   return (
     <WrapperWithFruits>
-      {isChristmas && <Snowfall />}
       {status === 'pending' && <Loader />}
       <Wrapper>
         <H2>Register</H2>

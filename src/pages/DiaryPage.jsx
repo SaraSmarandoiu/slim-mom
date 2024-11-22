@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import Snowfall from 'react-snowfall';
-
 import { Wrapper, WrapperAll, Button } from '../components/DiaryPage/DiaryPage.styled';
 import { DiaryAddProductForm } from '../components/DiaryAddProductForm/DiaryAddProductForm';
 import { DiaryDateCalendar } from '../components/DiaryDateCalendar/DiaryDateCalendar';
@@ -11,7 +9,6 @@ import { RightSideBar } from '../components/RightSideBar/RightSideBar';
 import { DiaryModal } from '../components/DiaryModal/DiaryModal';
 import AddIcon from '../images/svg/add.svg';
 import { Box } from '../components/Box';
-import { ThemeContext } from '../components/Context/Context';
 import { getProducts } from '../redux/productsSelectors';
 import { setProducts } from '../redux/productsSlice';
 import { apiListMyProducts } from '../services/api/api';
@@ -33,7 +30,6 @@ const useLockBodyScroll = (isLocked) => {
 const DiaryPage = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
-  const { isChristmas } = useContext(ThemeContext);
   const dispatch = useDispatch();
   const token = useSelector(getToken);
   const date = useSelector((state) => state.products.date);
@@ -70,7 +66,6 @@ const DiaryPage = () => {
 
   return (
     <WrapperAll>
-      {isChristmas && <Snowfall />}
       <Wrapper>
         <DiaryDateCalendar />
         {!mobile && <DiaryAddProductForm />}
