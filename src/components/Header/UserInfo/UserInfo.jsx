@@ -11,7 +11,7 @@ export const BottomSection = ({ name }) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
 
   const onModalClose = () => {
-    setIsModalOpened(false); 
+    setIsModalOpened(false);
     body.style.overflow = 'auto'; 
   };
 
@@ -19,10 +19,15 @@ export const BottomSection = ({ name }) => {
   const navigate = useNavigate();
   const [logOutUser] = useLogOutUserMutation();
 
-  const handleLogout = () => {
-    logOutUser(); 
-    dispatch(logOut());
-    navigate('/'); 
+  const handleLogout = async () => {
+    try {
+      await logOutUser();
+      dispatch(logOut());
+      localStorage.removeItem('token');
+      navigate('/login'); 
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
   };
 
   return (

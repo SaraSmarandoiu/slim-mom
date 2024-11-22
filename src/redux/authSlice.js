@@ -16,6 +16,11 @@ const authSlice = createSlice({
       state.token = action.payload.data.token;
       state.isLogged = true;
     },
+    setUserGoogle: (state, action) => {
+      state.user.name = action.payload.name;
+      state.token = action.payload.token;
+      state.isLogged = true;
+    },
     setInfoUser: (state, action) => {
       state.userInfo = action.payload;
       state.isLogged = true;
@@ -45,6 +50,7 @@ export const {
   logOut,
   setCurrentUser,
   setUser,
+  setUserGoogle,
   setInfoUser,
 } = authSlice.actions;
 

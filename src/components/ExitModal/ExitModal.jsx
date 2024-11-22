@@ -1,7 +1,7 @@
+import React from 'react';
 import { Button } from '../Button/Button';
 import { ButtonWrapper } from '../Form/Form.styled';
 import { InnerInfo, ModalWindow, Overlay } from '../Modal/Modal.styled';
-import React from 'react';
 import { createPortal } from 'react-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -12,9 +12,10 @@ export const ExitModal = ({ onClose, handleLogout }) => {
 
   const handleBackDropClick = e => {
     if (e.currentTarget === e.target) {
-      onClose(false);
+      onClose(); 
     }
   };
+
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
       <ModalWindow
