@@ -5,7 +5,6 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 import * as yup from 'yup';
 import { Error, Input, List } from '../components/Form/Form.styled';
-import { Button } from '../components/Button/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLogInUserMutation, useRegisterUserMutation } from '../redux/auth';
 import { useDispatch } from 'react-redux';
@@ -17,7 +16,8 @@ import {
 } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
-
+import { LoginButton } from '../components/RegisterPage/RegisterPage.styled';
+import { RegisterButton } from '../components/RegisterPage/RegisterPage.styled';
 import { routes } from '../components/Routes/routes';
 
 const schema = yup.object().shape({
@@ -134,13 +134,13 @@ const RegisterPage = () => {
               </li>
             </List>
             <ButtonWrapper>
-              <Button type="submit" full={true} style={{ width: '200px' }}>
+              <RegisterButton type="submit" full={true} style={{ width: '200px' }}>
                 Register
-              </Button>
+              </RegisterButton>
               <div onClick={handleClick}>
-                <Button type="button" full={false}>
+                <LoginButton type="button" full={false}>
                   Log In
-                </Button>
+                </LoginButton>
               </div>
             </ButtonWrapper>
           </Form>

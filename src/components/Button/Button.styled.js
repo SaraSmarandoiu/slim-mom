@@ -10,7 +10,7 @@ export const ButtonFull = styled.button`
   font-size: 14px;
   letter-spacing: 0.04em;
   display: block;
-
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   color: #ffffff;
   min-width: 182px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
