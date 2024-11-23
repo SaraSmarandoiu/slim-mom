@@ -14,12 +14,11 @@ export const Home = () => {
   const body = document.querySelector('body');
 
   const onModalClose = () => {
-    setIsModalOpened(false); // Setăm modalul la închis
-    body.style.overflow = 'auto'; // Permitem derularea paginii
+    setIsModalOpened(false); 
+    body.style.overflow = 'auto'; 
   };
 
   useEffect(() => {
-    // Extrage parametrii din URL
     const queryStr = window.location.search
       .replace('?', '')
       .split('&')
@@ -30,7 +29,7 @@ export const Home = () => {
       }, {});
 
     if (!queryStr.name) {
-      return; // Dacă nu există parametru 'name', nu facem nimic
+      return; 
     }
 
     const paramsLocalStorage = JSON.parse(localStorage.getItem('params')) || {};
@@ -40,14 +39,13 @@ export const Home = () => {
       ...paramsLocalStorage,
     };
 
-    delete newUser.name;  // Ștergem 'name' dacă există
-    delete newUser.token; // Ștergem 'token' dacă există
-    delete newUser.email; // Ștergem 'email' dacă există
+    delete newUser.name; 
+    delete newUser.token; 
+    delete newUser.email; 
 
-    // Salvăm informațiile utilizatorului în Redux
     dispatch(setInfoUser(paramsLocalStorage));
 
-    setUserParams(newUser); // Actualizăm starea userParams cu noile date
+    setUserParams(newUser); 
   }, [dispatch]);
 
   return (
@@ -58,8 +56,8 @@ export const Home = () => {
         )}
         <H2>Calculate your daily calorie intake right now</H2>
         <WeightForm
-          openModal={setIsModalOpened} // Setează starea pentru a deschide modalul
-          setUserParams={setUserParams} // Setează parametrii utilizatorului
+          openModal={setIsModalOpened} 
+          setUserParams={setUserParams} 
         />
       </Box>
     </WrapperWtithFruits>
