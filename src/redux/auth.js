@@ -36,9 +36,7 @@ export const authApi = createApi({
         url: `/users/logout`,
         method: 'POST',
       }),
-      headers: {
-        authorization: '',
-      },
+      
     }),
 
     getUser: builder.query({

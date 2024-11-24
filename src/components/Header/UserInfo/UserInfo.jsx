@@ -17,18 +17,25 @@ export const BottomSection = ({ name }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [logOutUser] = useLogOutUserMutation();
 
   const handleLogout = async () => {
     try {
       await logOutUser();
+
       dispatch(logOut());
+
       localStorage.removeItem('token');
-      navigate('/login'); 
+
+      navigate('/login');
     } catch (error) {
       console.error('Logout failed', error);
     }
   };
+  
+  
+  
 
   return (
     <Section>
