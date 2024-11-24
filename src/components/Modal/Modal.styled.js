@@ -6,13 +6,14 @@ export const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(33, 33, 33, 0.12);
-  z-index: 1200;
+  z-index: 999;
 `;
 
 export const ModalWindow = styled.div`
@@ -20,7 +21,8 @@ export const ModalWindow = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 672px;
+  max-width: 80vh;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: #ffffff;
@@ -76,4 +78,7 @@ export const CloseArrow = styled(FiCornerDownLeft)`
 
 export const InnerInfo = styled.div`
   padding: 10px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  
 `;

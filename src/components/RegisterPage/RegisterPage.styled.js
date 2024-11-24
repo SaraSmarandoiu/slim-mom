@@ -60,7 +60,46 @@ export const H2 = styled.h2`
     text-align: left;
   }
 `;
+export const RegisterButton = styled.button`
+  cursor: pointer;
+  margin-top: 20px;
+  width: 182px;
+  height: 44px;
 
+  color: #ffffff;
+  background-color: #fc842d;
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border: none;
+  font-family: 'VerdanaBold, sans-serif';
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+`;
+
+export const LoginButton = styled.button`
+  cursor: pointer;
+  margin-top: 20px;
+  width: 182px;
+  height: 44px;
+
+  color: #fc842d;
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 2px solid #fc842d;
+  font-family: 'VerdanaBold, sans-serif';
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+`;
 export const WrapperWithFruits = styled.div`
   @media (min-width: 426px) and (max-width: 1023px) {
     background-image: url(${StrawberryTablet}), url(${leavesTablet}),

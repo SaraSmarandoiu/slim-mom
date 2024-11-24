@@ -41,7 +41,11 @@ export const H1 = styled.h1`
     margin-bottom: 32px;
   }
 `;
-
+export const InnerInfo = styled.div`
+  max-height: 350px; 
+  overflow-y: auto; 
+  margin-bottom: 20px;
+`;
 export const H4 = styled.h4`
   font-size: 16px;
   line-height: 1.4;

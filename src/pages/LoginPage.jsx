@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/authSlice';
 
 import { Error, Input, List } from '../components/Form/Form.styled';
-import { Button } from '../components/Button/Button';
 import {
   ButtonWrapper,
   H2,

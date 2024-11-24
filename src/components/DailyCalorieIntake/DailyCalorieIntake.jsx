@@ -10,6 +10,7 @@ import {
   ButtonWrapper,
   ButtonForm,
 } from './DailyCalorieIntake.styled';
+import { InnerInfo } from './DailyCalorieIntake.styled';
 const DailyCalorieIntake = ({ backResponse, userParams }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,6 +35,7 @@ const DailyCalorieIntake = ({ backResponse, userParams }) => {
       <hr></hr>
       <H4>Foods you should not eat</H4>
 
+      <InnerInfo>
       <ul>
         {notAllowedProducts.map((prod, index) => (
           <LI key={index}>
@@ -43,6 +45,9 @@ const DailyCalorieIntake = ({ backResponse, userParams }) => {
           </LI>
         ))}
       </ul>
+      </InnerInfo>
+
+      
       {location.pathname !== routes.calculator ? (
         <ButtonWrapper
           onClick={() =>
@@ -63,4 +68,5 @@ const DailyCalorieIntake = ({ backResponse, userParams }) => {
     </ModalWrapper>
   );
 };
+
 export default DailyCalorieIntake;
