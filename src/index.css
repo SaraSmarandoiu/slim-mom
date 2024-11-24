@@ -36,3 +36,22 @@ ul {
   background: linear-gradient(0deg, rgb(212, 186, 171), rgb(70, 64, 50) 50%);
   border-radius: 10px;
 }
+
+@font-face {
+  font-family: 'VerdanaRegular';
+  src: url('/src/fonts/Verdana-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'VerdanaBold';
+  src: url('/src/fonts/Verdana-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GothamProBold';
+  src: url('/src/fonts/GothamPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

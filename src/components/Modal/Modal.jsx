@@ -14,30 +14,31 @@ export const Modal = ({ onClose, children, userParams }) => {
   const [backResponse, setBackResponse] = useState(null);
   const location = useLocation();
   const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
+
   useEffect(() => {
     if (!userParams) {
       return;
     }
 
     const fetchData = async () => {
-      const data = await apiCalorieIntake(userParams);
-      if (data) {
-        setBackResponse(data);
+      try {
+        const data = await apiCalorieIntake(userParams);
+        if (data) {
+          setBackResponse(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+        // Potențial poți seta o stare aici pentru a arăta un mesaj de eroare în UI
       }
-    };
+    }
     fetchData();
   }, [userParams]);
 
   useEffect(() => {
-    if (backResponse === null) {
-      return;
-    }
-  }, [backResponse]);
-
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.code === 'Escape');
-      onClose();
+    const handleKeyDown = (e) => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -50,7 +51,7 @@ export const Modal = ({ onClose, children, userParams }) => {
     };
   }, [onClose]);
 
-  const handleBackDropClick = e => {
+  const handleBackDropClick = (e) => {
     if (e.currentTarget === e.target) {
       onClose(false);
     }
@@ -60,11 +61,11 @@ export const Modal = ({ onClose, children, userParams }) => {
     <Overlay onClick={handleBackDropClick}>
       <ModalWindow
         onClose={onClose}
-        style={
-          location.pathname === routes.home && isMobile
+        style={{
+          location,pathname === routes.home && isMobile
             ? { top: '460px' }
             : null
-        }
+        }}
       >
         {backResponse ? (
           <DailyCalorieIntake
@@ -75,8 +76,8 @@ export const Modal = ({ onClose, children, userParams }) => {
           <Loader />
         )}
         {children}
-        <ButtonClose type="button" onClick={onClose}></ButtonClose>
-        <CloseArrow size="20px" left="20px" onClick={onClose} />
+        <ButtonClose type="button" onClick={() => onClose()} aria-label="Close modal"></ButtonClose>
+        <CloseArrow size="20px" left="20px" onClick={() => onClose()} />
       </ModalWindow>
     </Overlay>,
     modalRoot
