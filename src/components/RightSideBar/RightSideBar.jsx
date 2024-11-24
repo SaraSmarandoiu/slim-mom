@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text, RedText } from './RightSideBar.styled';
 
 export const RightSideBar = () => {
-
     const date = useSelector((state) => state.products.date);
     const dailyRate = useSelector((state) => state.auth.userInfo.dailyRate);
     const notAllowedProducts = useSelector((state) => state.auth.userInfo.notAllowedProducts);
@@ -21,7 +20,7 @@ export const RightSideBar = () => {
                         <Text>Left</Text>
                         {leftCalories < 0 ?
                             <RedText>{leftCalories} kcal</RedText> :
-                            <Text>{leftCalories ? leftCalories : '000'} kcal</Text> 
+                            <Text>{leftCalories ? leftCalories : '000'} kcal</Text>
                         }
                     </Item>
                     <Item>
@@ -34,17 +33,16 @@ export const RightSideBar = () => {
                     </Item>
                     <Item>
                         <Text>n% of normal</Text>
-                        {/* <Text>{nOfNorm ? Math.round(nOfNorm) : '000'} %</Text> */}
                         {nOfNorm > 100 ?
                             <RedText>{nOfNorm ? Math.round(nOfNorm) : '0'} %</RedText> :
-                            <Text>{nOfNorm ? Math.round(nOfNorm) : '0'} %</Text> 
+                            <Text>{nOfNorm ? Math.round(nOfNorm) : '0'} %</Text>
                         }
                     </Item>
                 </ul>
             </SummaryWrap>
             <FoodWrap>
                 <Title>Food not recommended</Title>
-                {notAllowedProducts ? 
+                {notAllowedProducts && notAllowedProducts.length > 0 ? 
                     <ul>
                         {notAllowedProducts.map((prod, index) => (
                             <Text key={index}>
