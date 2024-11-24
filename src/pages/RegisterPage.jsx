@@ -5,8 +5,6 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 import * as yup from 'yup';
 import { Error, Input, List } from '../components/Form/Form.styled';
-import { LoginButton } from '../components/RegisterPage/RegisterPage.styled';
-import { RegisterButton } from '../components/RegisterPage/RegisterPage.styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLogInUserMutation, useRegisterUserMutation } from '../redux/auth';
 import { useDispatch } from 'react-redux';
@@ -18,7 +16,8 @@ import {
 } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.styled';
 import { Loader } from '../components/Loader/Loader';
-
+import { LoginButton } from '../components/RegisterPage/RegisterPage.styled';
+import { RegisterButton } from '../components/RegisterPage/RegisterPage.styled';
 import { routes } from '../components/Routes/routes';
 
 const schema = yup.object().shape({

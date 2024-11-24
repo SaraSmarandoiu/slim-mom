@@ -8,8 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/authSlice';
 
 import { Error, Input, List } from '../components/Form/Form.styled';
-import { LoginButton } from '../components/LoginPage/LoginPage.styled';
-import { RegisterButton } from '../components/LoginPage/LoginPage.styled';
+import { Button } from '../components/Button/Button';
 import {
   ButtonWrapper,
   H2,
@@ -19,6 +18,8 @@ import { WrapperWithFruits } from '../components/RegisterPage/RegisterPage.style
 import { Loader } from '../components/Loader/Loader';
 
 import { routes } from '../components/Routes/routes';
+import { LoginButton } from '../components/LoginPage/LoginPage.styled';
+import { RegisterButton } from '../components/LoginPage/LoginPage.styled';
 
 const schema = yup.object().shape({
   email: yup.string().email().required('Email is required field'),
