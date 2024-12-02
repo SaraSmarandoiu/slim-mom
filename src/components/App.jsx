@@ -1,5 +1,4 @@
-
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Layout } from './Layout/Layout';
 import { Suspense, useEffect, lazy } from 'react';
@@ -37,7 +36,7 @@ export const App = () => {
   }, [dailyRate, data, dispatch]);
 
   return (
-    
+    <Router>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -86,6 +85,6 @@ export const App = () => {
           </Route>
         </Routes>
       </Suspense>
-    
+    </Router>
   );
 };
