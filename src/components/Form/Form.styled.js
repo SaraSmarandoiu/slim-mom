@@ -135,7 +135,6 @@ export const ButtonWrapper = styled.div`
     justify-content: flex-start;
     display: inline-block;
     position: relative;
-    /* width: 100%; */
     left: 339px;
   }
 `;
@@ -158,30 +157,6 @@ export const ButtonForm = styled.button`
   &:hover,
   :focus {
     background: #f07116 ;
-    /* &::before {
-      content: '';
-      position: none;
-      top: none;
-      left: none;
-      width: none;
-      height: none;
-      background: none;
-      border-radius: none;
-      box-shadow: none;
-      opacity: 0;
-    }
-    &::after {
-      content: '';
-      position: none;
-      top: none;
-      left: none;
-      width: none;
-      height: none;
-      background: none;
-      border-radius: none;
-      box-shadow: none;
-      opacity: 0;
-    } */
   }
   &::before {
     content: '';
