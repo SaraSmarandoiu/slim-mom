@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="refresh" content="0; URL='slim-mom/'" />
-</head>
-<body>
-  <p>Redirecting...</p>
-</body>
+  <head>
+    <title>404 - Page Not Found</title>
+    <script type="text/javascript">
+      var redirectUrl = window.location.origin + "/slim-mom" + window.location.pathname + window.location.search;
+      if (window.location.pathname !== "/slim-mom/") {
+        window.location.replace(redirectUrl);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>404 - Page Not Found</h1>
+    <p>Redirecting...</p>
+  </body>
 </html>
